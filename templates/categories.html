@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card card-rounded p-3">
+  <h5>Budgets & catégories</h5>
+  <form method="post" class="row g-2 mt-2">
+    <div class="col-12 col-md-5">
+      <input name="name" class="form-control" placeholder="Nom de la catégorie (ex: Café)">
+    </div>
+    <div class="col-12 col-md-4">
+      <input name="budget" type="number" step="0.01" class="form-control" placeholder="Budget mensuel (€)">
+    </div>
+    <div class="col-12 col-md-3">
+      <input name="color" type="color" class="form-control form-control-color" value="#60a5fa" title="Choisir couleur">
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary">Créer la catégorie</button>
+    </div>
+  </form>
+
+  <hr>
+  <div class="list-group mt-2">
+    {% for c in categories %}
+      <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ c.name }}</strong><br>
+          <small class="text-muted">Budget: {{ "%.2f"|format(c.monthly_budget) }}€</small>
+        </div>
+        <div>
+          <span class="badge" style="background:{{ c.color or '#888' }}">&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    {% else %}
+      <div class="list-group-item">Aucune catégorie.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

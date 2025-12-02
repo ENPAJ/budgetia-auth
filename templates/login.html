@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-md-5">
+    <div class="card card-rounded p-4">
+      <h4>Connexion</h4>
+      <form method="post">
+        <div class="mb-2"><input name="email" class="form-control" placeholder="Email"></div>
+        <div class="mb-2"><input name="password" type="password" class="form-control" placeholder="Mot de passe"></div>
+        <button class="btn btn-primary w-100">Se connecter</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

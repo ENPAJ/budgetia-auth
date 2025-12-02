@@ -1,0 +1,6 @@
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.3
+pandas==2.2.3
+openpyxl
+XlsxWriter
+python-dateutil==2.8.2

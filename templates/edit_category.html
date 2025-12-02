@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card p-3">
+  <h5>Modifier la catégorie</h5>
+  <form method="post">
+    <div class="mb-2"><input name="name" class="form-control" value="{{ category.name }}"></div>
+    <div class="mb-2"><input name="budget" type="number" step="0.01" class="form-control" value="{{ category.monthly_budget }}"></div>
+    <div class="mb-2"><input name="color" type="color" class="form-control form-control-color" value="{{ category.color }}"></div>
+    <button class="btn btn-primary">Enregistrer</button>
+  </form>
+</div>
+{% endblock %}
