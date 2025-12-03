@@ -221,7 +221,7 @@ python-json-logger==3.3.0
 python-Levenshtein==0.27.1
 python-multipart==0.0.20
 pytz==2025.2
-pywin32==311
+pywin32
 pywin32-ctypes==0.2.3
 pywinpty==3.0.0
 PyYAML==6.0.3
