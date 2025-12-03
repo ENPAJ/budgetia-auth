@@ -16,36 +16,11 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
-  <!-- App CSS -->
-  <style>
-    :root {
-      --bg: #f6f9fc;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #6b7280;
-      --accent: #0ea5a4;
-    }
-    [data-theme="dark"] {
-      --bg: #0b1020;
-      --card: #0f172a;
-      --text: #e6eef2;
-      --muted: #9ca3af;
-      --accent: #2dd4bf;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-    }
-    .card { background: var(--card); }
-    .muted { color: var(--muted); }
-    .accent { color: var(--accent); }
-    .btn-toggle-dark { border-radius: 999px; }
-  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -87,49 +62,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-  <script>
-    // Dark mode: persist in localStorage
-    (function(){
-      const root = document.documentElement;
-      const stored = localStorage.getItem('budgetia-theme');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
-      if(theme === 'dark') root.setAttribute('data-theme','dark');
-
-      window.toggleTheme = function(){
-        const now = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        if(now === 'dark') document.documentElement.setAttribute('data-theme','dark');
-        else document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('budgetia-theme', now);
-      };
-    })();
-
-    // Register service worker
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('/static/service-worker.js')
-        .then(reg => console.log('Service worker registered.', reg))
-        .catch(err => console.log('Service worker failed:', err));
-    }
-
-    // Progressive Web App install prompt
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      const btn = document.getElementById('btn-install-pwa');
-      if(btn) btn.style.display = 'inline-block';
-    });
-
-    function promptInstall(){
-      if(deferredPrompt){
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(() => {
-          deferredPrompt = null;
-          document.getElementById('btn-install-pwa').style.display = 'none';
-        });
-      }
-    }
-  </script>
 </body>
 </html>

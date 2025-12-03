@@ -1,0 +1,37 @@
+:root {
+  --bg: #f6f9fc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --accent: #0ea5a4;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --card: #0f172a;
+  --text: #e6eef2;
+  --muted: #9ca3af;
+  --accent: #2dd4bf;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  background: var(--card);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.btn-toggle-dark {
+  border-radius: 999px;
+}
